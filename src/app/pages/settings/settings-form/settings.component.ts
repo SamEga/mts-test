@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SettingsForm } from 'src/app/models/home.models';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class SettingsComponent implements OnInit {
   settingsForm!: FormGroup;
-  history: any;
+  history!: SettingsForm;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private cdr: ChangeDetectorRef) {
     this.initForm();
@@ -57,7 +58,7 @@ export class SettingsComponent implements OnInit {
   }
 
   getForm(): void {
-    this.api.getData<FormGroup>('settings').subscribe(
+    this.api.getData<SettingsForm>('settings').subscribe(
       res => {
         this.settingsForm.patchValue(res);
         this.history = res;

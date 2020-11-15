@@ -11,6 +11,16 @@ export interface UserService {
   title: string;
 }
 
+export interface SettingsForm {
+  [key: string]: any;
+  name: string;
+  alias?: string;
+  email?: string;
+  phone?: string;
+  radio?: string;
+  notifications?: boolean;
+}
+
 export type DataType = 'settings' | 'users' | 'services';
 type EnabledDate = { [key: string]: number };
 
