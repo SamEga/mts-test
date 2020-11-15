@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="container__users">
+    <app-users
+      [users]="users"
+      [services]="services"
+      (selectUserEmitter)="setActiveUser($event)"
+      [activeId]="activeUser?.id"
+    ></app-users>
+  </div>
+
+  <div class="container__services">
+    <app-services
+      [services]="services"
+      [activeUser]="activeUser"
+      (removeServiceEmitter)="removeService($event)"
+    ></app-services>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="services">
+  <h2 class="header">Подключенные услуги</h2>
+  <input class="services__search-bar" (keyup)="onSearch($event)" type="text" />
+  <div class="services__enabled" *ngFor="let service of enabledServices">
+    <p class="service__enabled-item-date">{{activeUser!.servicesEnableDates[service!.id] | date: 'dd.MM.yyyy'}}</p>
+    <p class="service__enabled-item-title">{{service?.title}}</p>
+    <p class="service__enabled-item-price">{{service?.fee}} руб</p>
+    <button class="btn__delete" (click)="removeService(service)">X</button>
+  </div>
+
+  <h2 class="header">Доступные услуги</h2>
+  <hr />
+  <div class="services__available" *ngFor="let service of availableServices">
+    <div class="services__group">
+      <input
+        #serviceCheckbox
+        type="checkbox"
+        (change)="selectService(service, $event.target)"
+        [name]="service.title"
+        [id]="service.title"
+      />
+      <p class="service__available-item-title">{{service?.title}}</p>
+    </div>
+    <p class="service__available-item-price">{{service?.fee}} руб</p>
+  </div>
+
+  <p *ngIf="!availableServices?.length">Нет услуг для подключения</p>
+  <button *ngIf="availableServices?.length" class="btn btn__add" (click)="addServices()">Подключить услуги</button>
+</div>

@@ -1,0 +1,7 @@
+<div class="user" [ngClass]="{'user__active': activeId === user?.id}">
+  <p class="user__name">{{ user?.name }}</p>
+  <div class="user__services">
+    <div class="user__info">Услуг: {{ user?.enabledServices?.length }}</div>
+    <div class="user__payment">аб. плата: <span class="user__sum"> {{ userPayment }} руб </span></div>
+  </div>
+</div>

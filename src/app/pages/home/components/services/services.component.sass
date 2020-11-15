@@ -1,0 +1,54 @@
+.services
+  .header 
+    margin: 0
+    font-size: 2rem
+
+  .services__search-bar
+    display: flex
+    box-sizing: border-box
+    width: 100%
+    padding: 5px
+    margin: 8px 0
+  
+  .services__enabled
+    display: grid
+    justify-content: space-between
+    align-items: center
+    grid-template-columns: 100px 1fr 100px 50px
+
+    .btn__delete
+      border: 1px solid red
+      background-color: #fc9d9d
+      border-radius: 10px
+      height: 2rem
+      width: 2rem
+      cursor: pointer
+
+  .services__available
+    display: flex
+    justify-content: space-between
+    margin: 1.25rem 0
+    
+    .services__group
+      display: flex
+      align-items: center
+      input
+        margin-right: 1rem
+
+
+      .service__available-item-title
+        margin: 0
+
+    .service__available-item-price
+      margin: 0
+  
+  .btn
+    font-size: 1rem
+    padding: 0.5rem 1rem
+    font-weight: bold
+    border-radius: 0.5rem
+  .btn__add
+    display: flex
+    margin-left: auto
+    border: 1px solid green
+    background-color: #d3ffcb

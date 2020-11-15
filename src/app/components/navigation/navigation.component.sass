@@ -1,0 +1,23 @@
+$border: #333
+
+.menu
+  background-color: #fbfbfb
+  border-bottom: 1px solid $border
+
+  .menu__list
+    padding: 0
+    margin: 0
+    display: flex
+
+    .menu__item
+      padding: 1rem
+      list-style: none
+      border: 1px solid $border
+      width: 6rem
+      text-align: center
+
+      .menu__link
+        text-decoration: none
+        color: black
+        &.active
+          font-weight: bold

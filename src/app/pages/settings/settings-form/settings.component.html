@@ -1,0 +1,51 @@
+<div class="container">
+  <form class="settings-form" [formGroup]="settingsForm">
+    <div class="row row__full">
+      <label for="name">ФИО</label>
+      <input type="text" name="name" id="name" formControlName="name" [attr.disabled]="true" />
+    </div>
+
+    <div class="row row__full">
+      <label for="alias">Псевдоним</label>
+      <input type="text" name="alias" id="alias" formControlName="alias" />
+    </div>
+
+    <div class="row form-group__notifications">
+      <input type="checkbox" name="notifications" id="notifications" formControlName="notifications" />
+      <label class="label-notifiations" for="notifications">Оповещения</label>
+    </div>
+
+    <div *ngIf="settingsForm.controls['notifications'].value" class="form-group">
+      <div class="row group-email">
+        <input type="radio" name="radio" value="email" id="email" formControlName="radio" />
+        <label class="label-email" for="email">Email</label>
+
+        <input
+          [attr.disabled]="settingsForm.controls['radio'].value !== 'email' ? '' : null"
+          type="text"
+          name="email-text"
+          id="email-text"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="row group-phone">
+        <input type="radio" name="radio" value="phone" id="phone" formControlName="radio" />
+        <label for="phone">Телефон</label>
+
+        <input
+          [attr.disabled]="settingsForm.controls['radio'].value !== 'phone' ? '' : null"
+          type="text"
+          name="phone-text"
+          id="phone-text"
+          formControlName="phone"
+        />
+      </div>
+    </div>
+
+    <div class="row btns">
+      <button [disabled]="settingsForm.untouched" class="btn btn__reset" (click)="resetChangesForm()">Отменить изменения</button>
+      <button class="btn btn__save" (click)="saveForm()">Сохранить</button>
+    </div>
+  </form>
+</div>
